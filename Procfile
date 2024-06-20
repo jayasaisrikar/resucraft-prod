@@ -1,1 +1,1 @@
-web: gunicorn ResuCraft.wsgi
+web: gunicorn resucraft-prod.wsgi

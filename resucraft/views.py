@@ -100,7 +100,7 @@ def template9(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('home')  # Redirect to the home page or any other desired URL after logout
+    return redirect('index')  # Redirect to the home page or any other desired URL after logout
     
 def userdata(request):
     if request.method == 'POST':
@@ -252,7 +252,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return render(request, 'home.html') 
+            return render(request, 'index.html') 
         else:
             messages.error(request, 'Invalid credentials')
             return render(request, 'login.html')

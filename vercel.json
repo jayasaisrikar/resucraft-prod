@@ -1,14 +1,14 @@
 {
     "builds": [
       {
-        "src": "ResuCraft/wsgi.py",
+        "src": "ResuCraftapp/wsgi.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "ResuCraft/wsgi.py"
+        "dest": "ResuCraftapp/wsgi.py"
       }
     ]
   }

@@ -161,7 +161,7 @@
             <!-- <h1><span id="logo1">RESU</span><span id='logo2'>craft</span></h1> -->
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link "  href="{% url 'home' %}">Home</a>
+                    <a class="nav-link "  href="{% url 'index' %}">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -198,7 +198,7 @@
         <center>
             <div class="profile-section">
                 <p>You've not entered any data </p>
-                <a href="{% url 'home' %}"><button>Go to Home</button></a>
+                <a href="{% url 'index' %}"><button>Go to Home</button></a>
             </div>
         </center>
         {% else %}

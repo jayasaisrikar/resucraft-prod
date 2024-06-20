@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/YpGLhBN/logo2.png">
+  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        form {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        table {
+            margin: 0 auto;
+            width: 100%;
+        }
+    
+        td {
+            padding: 8px;
+        }
+    
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    
+        button[type="button"],
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    
+        button[type="button"]:hover,
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    
+        ul li {
+            margin-bottom: 5px;
+        }
+    
+        .add-button {
+            margin-top: 10px;
+        }
+        .navbar {
+            background-color: #343a40;
+            z-index: 3;
+        }
+
+        .navbar-dark .navbar-brand,
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-light bg-light header1">
+        <div class="container-fluid ">
+            <div><img src="https://i.ibb.co/m007VmQ/logo4-2.png" width="46%"  alt=""></div>
+            <!-- <h1><span id="logo1">RESU</span><span id='logo2'>craft</span></h1> -->
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link"  href="">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'templates' %}">Resume Templates</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'view_profile' %}">Profile</a>
+                </li>
+                <li class="nav-item">
+
+                  <a class="nav-link  active" href ="{% url 'adddata' %}" style="margin: 2px;">your info</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'logout_view' %}"><button type="button" class="btn btn-danger btnlogut" style="background-color: red;">logout</button></a>
+
+                </li>
+              </ul>
+{% else %}
+<a href="{% url 'register' %}"><button type="button" class="btn btn-success btlogin">sign up</button></a>
+<a href="{% url 'login' %}"><button type="button" class="btn btn-success btlogin">Login</button></a>
+{% endif %}
+        </div>
+      </nav>
+
+<h2 style="font-weight: bold;text-align:center;color:rgb(39, 4, 144)">enter your details</h2>
+<center>
+<form method="post" action="/userdata/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td><label for="name">Name:</label></td>
+            <td><input type="text" id="name" name="name"></td>
+        </tr>
+        <tr>
+            <tr>
+                <td><label for="title">Title:</label></td>
+                <td><input type="text" id="title" name="title"></td>
+            </tr>
+            <tr>
+            <td><label for="desc">Description:</label></td>
+            <td><textarea rows="3" cols="30" id="desc" name="desc"></textarea></td>
+        </tr>
+        <tr>
+            <td><label for="skills">Skills:</label></td>
+            <td>
+                <div id="skills-container">
+                    <input type="text" name="skills[]" placeholder="Skill 1">
+                    <input type="text" name="skill_percentages[]" placeholder="Percentage 1"pattern="[0-9]+" title="Please enter only numbers">
+                </div>
+                <button type="button" class="add-skill">Add Skill</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="expertises">Expertises:</label></td>
+            <td>
+                <div id="expertises-container">
+                    <input type="text" name="expertises[]" placeholder="Expertise 1">
+                </div>
+                <button type="button" class="add-expertise">Add Expertise</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="computer-skills">Computer Skills:</label></td>
+            <td>
+                <div id="computer-skills-container">
+                    <input type="text" name="computer_skills[]" placeholder="Computer Skill 1">
+                </div>
+                <button type="button" class="add-computer-skill">Add Computer Skill</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="projects">Projects:</label></td>
+            
+            <td>
+                <div id ="projects-container">
+                <input type="text" name="projectnames[]"placeholder="project 1">
+                <textarea id="projects" name="projects[]" rows="3" cols="30" placeholder="project description"></textarea>
+
+                </div>
+            <button type="button" class ="add-project">Add Project</button>
+            </td>
+        </tr>
+     
+        <tr>
+            <td><label for="education">Education:</label></td>
+            <td>
+                <div id="education-container">
+                    <input type="text" name="institutions[]" placeholder="Institution 1">
+                    <input type="text" name="years_studied[]" placeholder="Years Studied 1">
+                    <input type="text" name="eddescription[]" placeholder="description 1">
+                </div>
+                <button type="button" class="add-education">Add Education</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="jobs">Jobs:</label></td>
+            <td>
+                <div id="jobs-container">
+                    <input type="text" name="job_names[]" placeholder="Job Name 1">
+                    <input type="text" name="job_place[]" placeholder="job place1">
+                    <input type="text" name="job_durations[]" placeholder="Duration 1">
+                    <textarea name="job_descriptions[]" placeholder="Description 1" rows="3" cols="30"></textarea>
+                </div>
+                <button type="button" class="add-job">Add Job</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="languages">Languages:</label></td>
+            <td>
+                <div id="languages-container">
+                    <input type="text" name="languages[]" placeholder="Language 1">
+                </div>
+                <button type="button" class="add-language">Add Language</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="links">Links:</label></td>
+            <td>
+                <div id="links-container">
+                    <input type="text" name="link_names[]" placeholder="Name of Link 1">
+                    <input type="text" name="links[]" placeholder="Link 1">
+                </div>
+                <button type="button" class="add-link">Add Link</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="text" id="email" name="email"></td>
+        </tr>
+        <tr>
+            <td><label for="phone">Phone Number:</label></td>
+            <td><input type="text" id="phone" name="phone"></td>
+        </tr>
+
+        <tr>
+            <td><Label for="address">Address:</Label></td>
+            <td><input type="text" id ="address" name="address"></td>
+        </tr>
+        <tr>
+            <td><label for="profile">Profile picture:</label></td>
+            <td><input type="file" name="profile_picture"></td>
+        </tr>
+    </table>
+    <br>
+    <center>
+        <button type="submit">Submit</button>
+    </center>
+</form>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let skillCount = 1;
+            let expertiseCount = 1;
+            let computerSkillCount = 1;
+            let projectcount=1
+            let educationCount = 1;
+            let jobCount = 1;
+            let languageCount = 1;
+            let linkCount = 1;
+
+            // Function to add new input field for skills, expertises, computer skills, education, jobs, languages, and links
+            function addField(container, inputName, placeholder, count, additionalField = false, additionalFieldPlaceholder = '') {
+                count++;
+                const newFieldRow = document.createElement('div');
+                newFieldRow.classList.add(inputName + '-row');
+                newFieldRow.innerHTML = `
+                    <input type="text" name="${inputName}s[]" placeholder="${placeholder} ${count}">
+                `;
+                if (additionalField) {
+                    newFieldRow.innerHTML += `
+                        <input type="text" name="${inputName}_${additionalField}s[]" placeholder="${additionalFieldPlaceholder} ${count}">
+                    `;
+                }
+                container.appendChild(newFieldRow);
+                return count;
+            }
+// Function to add new skill input field
+document.querySelector('.add-skill').addEventListener('click', function () {
+    skillCount++;
+    const skillsContainer = document.querySelector('#skills-container');
+    const newSkillRow = document.createElement('div');
+    newSkillRow.classList.add('skill-row');
+    newSkillRow.innerHTML = `
+        <input type="text" name="skills[]" placeholder="Skill ${skillCount}">
+        <input type="text" name="skill_percentages[]" placeholder="Percentage ${skillCount}"pattern="[0-9]+" title="Please enter only numbers">
+    `;
+    skillsContainer.appendChild(newSkillRow);
+});
+document.querySelector('.add-project').addEventListener('click',function(){
+    projectcount++;
+    const projectscontainer=document.querySelector('#projects-container');
+    const newprojectrow =document.createElement('div');
+    newprojectrow.classList.add('project-row');
+    newprojectrow.innerHTML=`
+    <input type="text" name="projectnames[]"placeholder="project ${projectcount}">
+    <textarea id="projects" name="projects[]" rows="3" cols="30" placeholder="project description"></textarea>
+`;
+projectscontainer.appendChild(newprojectrow);
+    
+});
+
+            // Function to add new expertise input field
+            document.querySelector('.add-expertise').addEventListener('click', function () {
+                expertiseCount = addField(document.querySelector('#expertises-container'), 'expertise', 'Expertise', expertiseCount);
+            });
+
+            // Function to add new computer skill input field
+            document.querySelector('.add-computer-skill').addEventListener('click', function () {
+                computerSkillCount = addField(document.querySelector('#computer-skills-container'), 'computer_skill', 'Computer Skill', computerSkillCount);
+            });
+// Function to add new education input field
+document.querySelector('.add-education').addEventListener('click', function () {
+    educationCount++;
+    const educationContainer = document.querySelector('#education-container');
+    const newEducationRow = document.createElement('div');
+    newEducationRow.classList.add('education-row');
+    newEducationRow.innerHTML = `
+        <input type="text" name="institutions[]" placeholder="Institution ${educationCount}">
+        <input type="text" name="years_studied[]" placeholder="Years Studied ${educationCount}">
+        <input type="text" name="eddescription[]" placeholder="description ${educationCount}">
+    `;
+    educationContainer.appendChild(newEducationRow);
+});
+
+
+            // Function to add new job input field
+            document.querySelector('.add-job').addEventListener('click', function () {
+                jobCount++;
+                const jobsContainer = document.querySelector('#jobs-container');
+                const newJobRow = document.createElement('div');
+                newJobRow.classList.add('job-row');
+                newJobRow.innerHTML = `
+                    <input type="text" name="job_names[]" placeholder="Job Name ${jobCount}">
+                    <input type="text" name="job_place[]" placeholder="job place${jobCount}">
+                    <input type="text" name="job_durations[]" placeholder="Duration ${jobCount}">
+                    <textarea name="job_descriptions[]" placeholder="Description ${jobCount}" rows="3" cols="30"></textarea>
+                `;
+                jobsContainer.appendChild(newJobRow);
+            });
+
+            // Function to add new language input field
+            document.querySelector('.add-language').addEventListener('click', function () {
+                languageCount = addField(document.querySelector('#languages-container'), 'language', 'Language', languageCount);
+            });
+// Function to add new link input field
+document.querySelector('.add-link').addEventListener('click', function () {
+    linkCount++;
+    const linksContainer = document.querySelector('#links-container');
+    const newLinkRow = document.createElement('div');
+    newLinkRow.classList.add('link-row');
+    newLinkRow.innerHTML = `
+        <input type="text" name="link_names[]" placeholder="Name of Link ${linkCount}">
+        <input type="text" name="links[]" placeholder="Link ${linkCount}">
+    `;
+    linksContainer.appendChild(newLinkRow);
+});
+
+        });
+    </script>
+</body>
+</html>

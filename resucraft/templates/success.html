@@ -1,0 +1,476 @@
+<html>
+<head>
+<title></title>
+<style>
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    list-style:none;
+    font-family:sans-serif;
+}
+body{
+    background-color:#ffffff;
+}
+.main-content{
+    min-height: 100vh;
+    width: 80%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    box-shadow: 0px 13px 13px rgba(175, 179, 181, 0.5);
+}
+.left-section{
+    grid-column: span 2;
+    height: 100%;
+    background-color:#191970;
+}
+.right-section{
+    grid-column: span 5;
+    background-color: azure;
+    height: 100%;
+}
+.left-content{
+    padding:2rem 3rem;
+}
+.profile{
+    width:100%;
+    border-bottom: 1px solid #002333;
+}
+.profile img{
+    width:250px;
+    height: 250px;
+    border-radius:50%;
+    border:5px solid #00aeff;
+}
+.name{
+    font-size:4rem;
+    color:white;
+    text-align: center;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    padding-bottom: 1.2rem 0;
+}
+.career{
+    font-size: 1.2rem;
+    color:#94D9EA;
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 1rem;
+}
+.main-title{
+    font-size: 1.8rem;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    color:#f7f7f7ec;
+    padding-top:3rem;
+}
+.contact-info ul{
+    padding-top: 2rem 0;
+}
+.contact-info ul li{
+    padding: .4rem 0;
+    display: flex;
+    align-items: center;
+    color:#778899;
+}
+.contact-info ul li i{
+    padding-right:1rem;
+    font-size:1.1rem;
+    color:#2D9CDB;
+}
+.skills-section ul{
+    padding-top: 2rem;
+}
+.skills-section ul li{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    padding-bottom: .4rem;
+}
+.progress-bar{
+    width:100%;
+    height:.4rem;
+    background-color: #2D3748;
+    position:relative;
+    border-radius:12px;
+}
+.progress{
+    height:100%;
+    position:absolute;
+    left:0;
+    background-color: #2D9cDB;
+    border-radius:12px;
+}
+.js-progress{
+    width:70%;
+}
+
+.python-progress{
+    width:50%;
+}
+.skill-title{
+    text-transform: uppercase;
+    color:#f7f7f7;
+    font-size:1rem;
+    
+}
+.sub-title{
+    padding-top:2rem;
+    font-size:1.2rem;
+    text-transform:uppercase;
+    color:#f7f7f7;
+}
+.sub-para{
+    color:#ccc;
+    padding:.4rem 0;
+}
+.references-section li{
+    color:#ccc;
+    padding:.2rem 0
+
+}
+.references-section li i{
+    padding-right: 1rem;
+    font-size: 1.2rem;
+    color:#2D9CDB;
+}
+
+.right-main-content{
+    padding: 2rem 3rem;
+}
+.right-title{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color:2F80ED;
+    padding-bottom: 1rem;
+    position:relative;
+}
+.right-title::after{
+    content:"";
+    position:absolute;
+    width:60%;
+    height: .2rem;
+    background-color: #778899;
+    border-radius: 12px;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+}
+para{
+    line-height: 1.5rem;
+    color:#718096;
+    font-size:1.1rem;
+}
+.sect{
+    padding-bottom: 2rem;
+}
+.timeline{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.tl-title{
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    color: #002333;
+    text-transform: uppercase;
+}
+.tl-title-2{
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    color: #2D9CDB;
+    text-transform: uppercase;
+}
+.tl-content{
+    border-left: 2px solid #ccc;
+    padding-left:2rem;
+    position:relative;
+    padding-bottom: 2rem;
+}
+.tl-title-2::before{
+    content:"";
+    position:absolute;
+    width:.7rem;
+    height: .7rem;
+    background-color: #2D9CDB;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    left:0;
+    
+}
+@page {
+    size: A4; /* Sets the page size to A4 */
+    margin: 10mm; /* Sets the page margins (adjust as needed) */
+}
+</style></head>
+<body>
+    <main class="main-content">
+        <section class="left-section">
+            <div class="left-content">
+                <div class="profile">
+                    <img src="{{ user_data.profile_picture.url }}" alt="">
+                    <h2 class="name">{{ user_data.user.username }}</h2>
+                    <p class="career">Software Engineer</p>
+                </div>
+                <div class="contact-info">
+                    <h3 class="main-title">Contact Info</h3>
+                    <ul>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            {{ user_data.phone_number }}
+                        </li>
+                        <li>
+                            <i class="fa fa-mail"></i>
+                            {{ user_data.contact_email }}
+                        </li>
+                        <li>
+                            <i class="fa fa-facebook"></i>
+                            wwww.facebook.com/john123
+                        </li>
+                        <li>
+                            <i class="fa fa-github"></i>
+                            www.github.com/john123
+                        </li>
+                        <li>
+                            <i class="fa fa-linkedin"></i>
+                            www.linkedin.com/john123
+                        </li>
+                    </ul>
+                </div>
+                <div class="skills-section">
+                    <h3 class="main-title">Skills</h3>
+                    <ul>
+                        {{ user_data.skills }}
+                        <li>
+                            <p class="skill-title">Java</p>
+                            <div class="progress-bar">
+                                <div class="progress js-progress"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="skill-title">Python</p>
+                            <div class="progress-bar">
+                                <div class="progress python-progress"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="skill-title">Javascript</p>
+                            <div class="progress-bar">
+                                <div class="progress python-progress"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="skill-title">node js</p>
+                            <div class="progress-bar">
+                                <div class="progress python-progress"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="skill-title">C++</p>
+                            <div class="progress-bar">
+                                <div class="progress python-progress"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="skill-title">html/css</p>
+                            <div class="progress-bar">
+                                <div class="progress python-progress"></div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="references-section">
+                    <h3 class="main-title">References</h3>
+                    <div class="referee">
+                    <h6 class="sub-title">Michael Bowen</h6>
+                    <p class="sub-para">Product Manager</p>
+                    <ul>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            9938573278
+                        </li>
+                        <li>
+                            <i class="fa fa-fax"></i>
+                            michaelbowen@gmail.com
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="referee">
+                        <h6 class="sub-title">Joseph Kumar</h6>
+                        <p class="sub-para">Senior Developer</p>
+                        <ul>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                8843729822
+                            </li>
+                            <li>
+                                <i class="fa fa-fax"></i>
+                                josephkumar@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="referee">
+                        <h6 class="sub-title">Rick Ross</h6>
+                        <p class="sub-para">Product Manager</p>
+                        <ul>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                7847722384
+                            </li>
+                            <li>
+                                <i class="fa fa-fax"></i>
+                                rickross@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <section class="right-section">
+            <div class="right-main-content">
+                <section class="about sect">
+                    <h2 class="right-title">profile</h2>
+                <p class="para">
+                    {{ user_data.description }} </p>
+                </section>
+                <section class="experince sect">
+                    <h2 class="right-title"> Experience</h2>
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title">{{ user_data.work_experiences }}</h5>
+                            <p class="para">2015-2018</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2">Junior developer</h5>
+                            <p class="para">
+                                Junior Software Developer is an entry-level position in software development teams. In order to attract a Junior Software Developer that best matches your needs, it is very important to write a clear and precise Junior Software Developer job description. We are looking for a motivated and enthusiastic Junior Software Developer to join our team
+                            </p>
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title">Google</h5>
+                            <p class="para">2018-2020</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2"> web developer</h5>
+                            <p class="para">
+                                A Web Developer is a professional who is responsible for the design and construction of websites. They ensure that sites meet user expectations by ensuring they look good, run smoothly and offer easy access points with no loading issues between pages or error messages.
+                            </p>
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title">apple</h5>
+                            <p class="para">2020-2022</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2"> senior developer</h5>
+                            <p class="para">
+                                The responsibilities of senior developers include writing code, analyzing data, and contributing to the design and implementation of software. To be successful as a senior developer, you should demonstrate great skill in creativity and innovation, ability to thrive in a high pressure environment, and possess excellent communication skills.
+                            </p>
+                           </div>
+                        </div>
+                    </div>
+                </section> 
+                <section class="education sect">
+                    <h2 class="right-title"> Education</h2>
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title">6th to 10th</h5>
+                            <p class="para">2014-2019</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2">Z.P.H.S MARUVADA</h5>
+                            <p class="para">{{ user_data.education }}
+
+                            </p>
+                           </div>
+                        </div>
+                    </div>    
+
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title">intermediate</h5>
+                            <p class="para">2019-2021</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2">Vidwan junior college</h5>
+                            <p class="para">
+                                The junior college VIDWAN JR. COLLEGE , BOBBILI is located in the area BOBBILI of BOBBILI. VIDWAN JR. COLLEGE , BOBBILI is in the VIZIANAGARAM district of ANDHRA PRADESH state
+                            </p>
+                           </div>
+                        </div>
+                    </div>    
+
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title">Btech(information technology)</h5>
+                            <p class="para">2014-2019</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2">JNTU-GV vizianagaram</h5>
+                            <p class="para">
+                                The Jawaharlal Nehru Technological University-Gurajada, Vizianagaram (JNTU-GV) is a public university located in Vizianagaram, Andhra Pradesh.
+                            </p>
+                           </div>
+                        </div>
+                    </div>    
+                </section>    
+                <section class="awards sect">
+                    <h2 class="right-title"> awards</h2>
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title"></h5>
+                            <p class="para">June 2016</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2">projects</h5>
+                            <p class="para">{{ user_data.projects }}  </p>
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title"></h5>
+                            <p class="para">April 2022</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2">The star employee</h5>
+                            <p class="para">
+                                This award goes to the employees who always aim higher and achieve higher The Ace Employee: This award is for the best employee in the organization or department
+                            </p>
+                           </div>
+                        </div>
+                    </div>
+                </section>   
+
+
+
+
+
+            </div>
+        </section>
+    </main>
+
+    <a href="{% url '' %}?pdf=true" class="btn btn-primary">Download PDF</a>
+
+</body>
+</head>
+</html>

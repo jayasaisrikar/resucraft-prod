@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="images/logo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+
+@import url('https://fonts.googleapis.com/css?family=poppins');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+*{  font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+   
+    /* border:1px solid black; */
+}
+body::-webkit-scrollbar{
+    display: none;
+  overflow: hidden;
+}
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background:rgba(0,0,0,0.07);;
+        }
+
+        header {
+            color:darkcyan;
+            padding: 20px;
+            text-align: center;
+           
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background-color: #ffcccb;
+        }
+        footer{
+    background:rgb(16, 15, 15);
+    height: 32vh;
+    color: white;
+    padding:0px;
+    padding-top: 2%;
+    
+}
+.foot2{
+    color: white;
+    font-weight:500;
+    position: relative;
+    bottom:0%;
+    background-color: black;
+    text-align: center;
+    height: 2.25em;
+    align-self: center;
+}
+.foot h3{
+    color:white;
+    font-weight:700;
+}
+.foot1 li{
+    list-style-type: none;
+    color:#FFFAFA;
+    font-size:0.8rem ;
+    line-height:25px;
+}
+.foot1 a{
+    text-decoration: none;
+}
+
+  
+  .navbar{
+box-shadow:0px 2px gray;
+border-radius: 6px;
+
+  }
+  .nav{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-top: px;
+    width: 50%; 
+    position: relative;
+    /* left:19vw; */
+}
+
+.nav-item{
+    background-color:#FFFAFA;
+    border-radius: 10px;
+    border:0.000000000000001px solid #D3D3D3;
+
+    }
+
+    .nav-item:hover{
+        color:black;  
+        transform: scale(1.1);
+    }
+    .nav-link:hover{
+        color:black;  
+        transform: scale(1.1);
+    }
+
+    
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar sticky-top navbar-light bg-light header1">
+            <div class="container-fluid ">
+                <div><img src="https://i.ibb.co/m007VmQ/logo4-2.png" width="46%"  alt=""></div>
+                <!-- <h1><span id="logo1">RESU</span><span id='logo2'>craft</span></h1> -->
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link "  href="{% url 'home' %}">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'contact' %}">Contact</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'templates' %}">Resume Templates</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'view_profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+    
+                      <a class="nav-link" href ="{% url 'adddata' %}">your info</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'logout_view' %}"><button type="button" class="btn btn-danger btnlogut">logout</button></a>
+    
+                    </li>
+                  </ul>
+    {% else %}
+    <a href="{% url 'register' %}"><button type="button" class="btn btn-success btlogin">sign up</button></a>
+    <a href="{% url 'login' %}"><button type="button" class="btn btn-success btlogin">Login</button></a>
+    {% endif %}
+            </div>
+          </nav>
+    <header>
+        <h1>Privacy Policy</h1>
+    </header>
+    <div class="container">
+        <h2>1. Our Terms of Use</h2>
+        <p>At Resume Builder, we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and protect your personal information. <br>
+            We care about data privacy and security. Please review our Privacy Policy for details about what information we collect, how we use and share it, and how it is protected. In addition, we will maintain certain data that you transmit to the Platform for the purpose of managing the performance of the Platform, as well as data relating to your use of the Platform. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Platform. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.</p>
+
+        <h2>2. Information We Collect</h2>
+        <p>We may collect personal information, such as your name, email address, and resume content, to provide you with our services. We do not share your personal information with third parties.</p>
+
+        <h2>3. Cookies and Tracking</h2>
+        <p>Our website uses cookies to improve your experience. You can disable cookies in your browser settings if you prefer not to use them.</p>
+
+        <h2>4. Data Security</h2>
+        <p>We take the security of your data seriously and use industry-standard measures to protect it. However, no method of transmission over the internet or electronic storage is 100% secure.</p>
+
+        <h2>5. Changes to this Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices and services. You can always find the latest version on our website.</p>
+
+        <p class="highlight">By using our website, you agree to the terms of this Privacy Policy.</p>
+    </div>
+    <footer class="d-flex flex-column">
+        <div class="container-fluid foot1 d-flex justify-content-evenly">
+           <div>
+               
+                <ul><h3>Customer Support</h3>
+                    <h6>Timmings:</h4>
+                    <li>Mon-Fri 8 AM - 8 PM CST</li>
+                    <li>Saturday 8 AM - 5PM CST</li>
+                    <li>Sunday 10 AM - 6 PM CST</li>
+                </ul>
+           </div>
+        
+           <div>
+            <ul>
+                <h3>About</h3>
+               <a href="{% url 'terms' %}"> <li>Terms and Conditions</li></a>
+                <a href="{% url 'privacy' %}"><li>Privacy Policy</li></a>
+                <a href="{% url 'about' %}"><li>About Us</li></a>
+               <a href="{% url 'contact' %}"> <li>FAQs</li></a>
+                
+            </ul>
+           </div>
+    
+           <div>
+            <ul>
+               <h3>Follow us on <i class="fa-brands fa-linkedin"></i> </h3>
+                <a href="https://www.linkedin.com/in/eswar-karthikk-1a93a7243/"> <li><i class="fa-brands fa-linkedin"></i> A Eswar</li></a>
+                <a href="https://www.linkedin.com/in/harsha-vivek-a47309243/"><li><i class="fa-brands fa-linkedin"></i> A Harsha</li></a>
+               <a href="https://www.linkedin.com/in/jayasaisrikar/"><li><i class="fa-brands fa-linkedin"></i> B Srikar</li></a> 
+               <a href="https://www.linkedin.com/in/bhavani-balijiredddi-a2146b252/"><li><i class="fa-brands fa-linkedin"></i> B Bhavani</li></a> 
+                
+            </ul>
+           </div>
+        </div> 
+    </footer>
+    
+
+</body>
+</html>

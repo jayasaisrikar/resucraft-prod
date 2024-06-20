@@ -1,0 +1,433 @@
+<html>
+<head>
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/YpGLhBN/logo2.png">
+
+<style>
+
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    list-style:none;
+    font-family:sans-serif;
+}
+body{
+    background-color:#ffffff;
+}
+.main-content{
+    min-height: 100vh;
+    width: 80%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+.left-section{
+    grid-column: span 2;
+    height: 100%;
+    background-color:#a20378;
+}
+.right-section{
+    grid-column: span 5;
+    background-color: azure;
+    height: 100%;
+}
+.left-content{
+    padding:2rem 3rem;
+}
+.profile{
+    width:100%;
+    border-bottom: 1px solid #002333;
+}
+.profile img{
+    width:100%;
+    border-radius:50%;
+    border:8px solid #ffffff;
+}
+.name{
+    font-size:2rem;
+    color:white;
+    text-align: center;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    padding-bottom: 1.2rem 0;
+}
+.career{
+    font-size: 1.2rem;
+    color:#94D9EA;
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 1rem;
+}
+.main-title{
+    font-size: 1.8rem;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    color:#f7f7f7ec;
+    padding-top:3rem;
+}
+.contact-info ul{
+    padding-top: 2rem 0;
+}
+.contact-info ul li{
+    padding: .4rem 0;
+    display: flex;
+    align-items: center;
+    color:#778899;
+}
+.contact-info ul li i{
+    padding-right:1rem;
+    font-size:1.1rem;
+    color:#343435;
+}
+.skills-section ul{
+    padding-top: 2rem;
+}
+.skills-section ul li{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    padding-bottom: .4rem;
+}
+.progress-bar{
+    height:.4rem;
+    background-color: #2D3748;
+    position:relative;
+    border-radius:12px;
+}
+.progress{
+    height:100%;
+    position:absolute;
+    left:0;
+    background-color: #404040;
+    border-radius:12px;
+}
+.js-progress{
+    width:70%;
+}
+.python-progress{
+    width:50%;
+}
+.skill-title{
+    text-transform: uppercase;
+    color:#f7f7f7;
+    font-size:1rem;
+    
+}
+.sub-title{
+    padding-top:2rem;
+    font-size:1.2rem;
+    text-transform:uppercase;
+    color:#f7f7f7;
+}
+.sub-para{
+    color:#ccc;
+    padding:.4rem 0;
+}
+.references-section li{
+    color:#ccc;
+    padding:.2rem 0
+
+}
+.references-section li i{
+    padding-right: 1rem;
+    font-size: 1.2rem;
+    color:#4b4b4b;
+}
+
+.right-main-content{
+    padding: 2rem 3rem;
+}
+.right-title{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color:2F80ED;
+    padding-bottom: 1rem;
+    position:relative;
+}
+.right-title::after{
+    content:"";
+    position:absolute;
+    width:60%;
+    height: .2rem;
+    background-color: #778899;
+    border-radius: 12px;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+}
+.para{
+    line-height: 1.5rem;
+    color:#718096;
+    font-size:1.1rem;
+}
+.sect{
+    padding-bottom: 2rem;
+}
+.timeline{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.tl-title{
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    color: #002333;
+    text-transform: uppercase;
+}
+.tl-title-2{
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    color: #0b7a74;
+    text-transform: uppercase;
+}
+.tl-content{
+    border-left: 2px solid #ccc;
+    padding-left:2rem;
+    position:relative;
+    padding-bottom: 2rem;
+}
+.tl-title-2::before{
+    content:"";
+    position:absolute;
+    width:.7rem;
+    height: .7rem;
+    background-color: #2D9CDB;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    left:0;
+    
+}
+
+a {
+    text-decoration: none;
+    color: rgb(140, 222, 255);
+    font-weight: bold;
+}
+
+button {
+  background-color: white;
+  font-size: 20px;
+  padding: 20px;
+  border: white;
+}
+.pdf{
+    align-items: center;
+    margin: 20px 665px;
+}
+
+/*Media Querries*/
+@media screen and (max-width: 823px) {
+  .right-title::after {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 681px) {
+  .right-title::after {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .timeline {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 780px) {
+  .left-section {
+    grid-column: span 3;
+  }
+  .right-section {
+    grid-column: span 4;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .main-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .profile img {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .profile img {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 390px) {
+  .name {
+    font-size: 1.5rem;
+  }
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+        <button><a href="{%url 'templates'%}">Resucraft</a></button>
+
+    <div class="container">
+  
+    <main class="main-content" id="printarea">
+        <section class="left-section">
+            <div class="left-content">
+                <div class="profile">
+                    <img src="{{ user_data.profile_picture.url }}" class="pfimg" alt="">
+                    <h2 class="name">{{ user_data.name_of_user }}</h2>
+                    <p class="career">{{user_data.title}}</p>
+                </div>
+
+                <div class="skills-section">
+                    <h3 class="main-title">Skills</h3>
+                    <ul>{% for skill in user_data.skills.all %}
+                        <li>
+                            <p class="skill-title">{{ skill.skill }}</p>
+                            <font color=white>{{ skill.percentage }}%</font>
+                         
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="references-section">
+                    <h3 class="main-title">Computer Skills</h3>
+                    
+                    {% for computer_skill in user_data.computer_skills.all %}
+                    <div class="referee">
+                    <p class="sub-para">{{ computer_skill.name }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="references-section">
+                    <h3 class="main-title">Expertise</h3>
+                    
+                    {% for expertise in user_data.expertises.all %}
+                    <div class="referee">
+                    <p class="sub-para">{{ expertise.name }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h3 class="main-title"> &nbsp;Contact Info</h3>
+                <ul>
+                    <li>
+                        <i class="fa fa-phone"></i>
+                        {{ user_data.phone_number }}
+                    </li>
+                    <li>
+                        <i class="fa fa-mail"></i>
+                        {{ user_data.contact_email }}
+                    </li>
+                    <li>
+                        <i class="fa fa-phone"></i>
+                        {{ user_data.address }}
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="right-section">
+            <div class="right-main-content">
+                <section class="about sect">
+                    <h2 class="right-title">profile</h2>
+                <p class="para">{{ user_data.description }}</p>
+                </section>
+
+                <section class="education sect">
+                    <h2 class="right-title"> Education</h2>
+                    
+                    {% for institution in user_data.education.all %}
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            
+                            <h5 class="tl-title">{{ institution.years_studied }}</h5>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2">{{ institution.name }}</h5>
+                            <p class="para">{{ institution.description }}
+
+                            </p>
+                           </div>
+                        </div>
+                    </div>    
+                    {% endfor %}
+                </section>  
+                <section class="experince sect">
+                    <h2 class="right-title"> Experience</h2>
+                    
+                    {% for job in user_data.work_experiences.all %}
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                            <h5 class="tl-title">{{job.jobplace}}</h5>
+                            <p class="para">{{ job.duration }}</p>
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                            <h5 class="tl-title-2">J{{ job.name }}</h5>
+                            <p class="para">{{ job.description }} </p>
+                           </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>   
+                <section class="awards sect">
+                    <h2 class="right-title"> Projects</h2>
+                    
+                    {% for link in user_data.links.all %}
+                    <div class="timeline">
+                        <div class="left-tl-content">
+                        </div>
+                        <div class="right-tl-content">
+                            <div class="tl-content">
+                                <h5 class="tl-title"><a href="{{ link.link }}">{{ link.name }}</a></h5>
+                           </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>   
+
+                <li>
+                    <i class="fa fa-facebook"></i>
+                    <a href="" target="_blank"></a>
+                </li>
+
+            </div>
+        </section>
+        
+    </main>  
+    </div>
+   <a> <button class="pdf" onclick="print()"><a>Print PDF</a></button></a>
+
+    <script>
+        window.jsPDF = window.jspdf.jsPDF;
+        var docPDF = new jsPDF();
+        function print() {
+          var elementHTML = document.querySelector("#printarea");
+          docPDF.html(elementHTML, {
+            callback: function (docPDF) {
+              docPDF.save("resume.pdf");
+            },
+            x:-25,
+            y:-5,
+            width: 260,
+            windowWidth: 1520,
+          });
+        }
+      </script>
+
+
+  
+
+
+  
+
+
+</body>
+</head>
+</html>

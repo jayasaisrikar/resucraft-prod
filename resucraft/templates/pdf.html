@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        /* CSS for centering the image */
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* CSS for making the image round on hover */
+        img.round {
+            border-radius: 50%;
+            transition: border-radius 0.3s ease;
+        }
+
+        /* CSS for the table */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <style>
+        @page {
+            size: A4; /* Adjust to your desired page size */
+            margin: 20mm; /* Adjust margins as needed */
+        }
+    </style>
+    <style>
+        /* CSS for the table */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #f2f2f2; /* Grey background color */
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Shadow at the corners */
+        }
+    
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    
+</head>
+<body background="grey">
+    <h1>Success</h1>
+    <p>You have successfully logged in!</p>
+
+    <h2 align="center"><font color="blue">User Profile</font></h2>
+
+    <div id="profile-content" style="box-shadow:grey;">
+        <img src="{{ user_data.profile_picture.url }}" alt="Profile Picture" height="200" width="200" onload="makeRound(this)" onmouseover="makeNormal(this)" onmouseout="makeRound(this)" id="profileImage"/>
+
+
+        <!-- Display user data in a table -->
+        <table>
+            <tr>
+                <th colspan="2">Resume</th>
+            </tr>
+            <tr>
+                <td><strong>Name:</strong></td>
+                <td>{{ user_data.user.username }}</td>
+            </tr>
+            <tr>
+                <td><strong>Description:</strong></td>
+                <td>{{ user_data.description }}</td>
+            </tr>
+            <tr>
+                <td><strong>Skills:</strong></td>
+                <td>{{ user_data.skills }}</td>
+            </tr>
+            <tr>
+                <td><strong>Projects:</strong></td>
+                <td>{{ user_data.projects }}</td>
+            </tr>
+            <tr>
+                <td><strong>Work Experiences:</strong></td>
+                <td>{{ user_data.work_experiences }}</td>
+            </tr>
+            <tr>
+                <td><strong>Education:</strong></td>
+                <td>{{ user_data.education }}</td>
+            </tr>
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td>{{ user_data.contact_email }}</td>
+            </tr>
+            <tr>
+                <td><strong>Phone Number:</strong></td>
+                <td>{{ user_data.phone_number }}</td>
+            </tr>
+        </table>
+    </div>
+</body></html>

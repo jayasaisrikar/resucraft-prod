@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/YpGLhBN/logo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <style>
+
+@import url('https://fonts.googleapis.com/css?family=poppins');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
+*{  font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+   
+    /* border:1px solid black; */
+}
+body::-webkit-scrollbar{
+    display: none;
+  
+}
+   
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+  
+  .navbar{
+box-shadow:0px 2px gray;
+border-radius: 6px;
+
+  }
+  .nav{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-top: px;
+    width: 50%; 
+    position: relative;
+    /* left:19vw; */
+}
+
+.nav-item{
+    background-color:#FFFAFA;
+    border-radius: 10px;
+    border:0.000000000000001px solid #D3D3D3;
+
+    }
+
+    .nav-item:hover{
+        color:black;  
+        transform: scale(1.1);
+    }
+    .nav-link:hover{
+        color:black;  
+        transform: scale(1.1);
+    }
+
+/* #login_btn{
+    margin-left:;
+} */
+  
+#logo1{
+    color:teal;
+    text-shadow:grey;
+    font-weight:bolder ;
+    }
+    #logo2{
+    color:#f8da5b ;
+    font-weight:bold;
+    }
+
+    .header1{
+        display: flex;
+        
+        justify-content: space-between;
+        
+        
+      }
+.btlogin{
+    transform: scale(1.1);
+    background-color:#17980b;
+}
+.btnlogout{
+  transform: scale(1.1);
+  background-color:#c10d0d;
+  border: none;
+}
+.title{
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    
+    
+}
+.leftimg{
+    width:200px;
+    height: 200px;
+}
+
+.titlesec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+
+}
+.hidden1 {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+    overflow-x:hidden;
+
+}
+.hidden2
+ {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(100%);
+    transition: all 1s;
+   overflow-x: hidden;
+}
+
+
+.show1
+ {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+.show2 
+{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+.carousel_div{
+    z-index: 999;
+    height: 90vh;
+    background:rgba(0,0,0,0.07);
+    /* background-color:; */
+    display: flex;
+    justify-content: center;
+    
+}
+.carousel_div .carousel_left{
+    height: 60vh;
+    width: 29vw;
+    margin: 5.5%;
+}
+.carousel_div .carousel_right{
+    height: 90vh;
+    width: 34vw;
+    margin: 1%;
+}
+.carousel_div .carousel_left h1{
+    font-weight:800;  
+}
+
+.carousel_div .carousel_left p{
+    font-weight:400;
+    font-size:1.2em;
+    color: #2F4F4F;
+
+}
+.carousel_div .carousel_left button{
+    font-size:1.6rem;
+
+}
+
+.crimgs{
+ 
+   /* width: 435px; */
+   height: 670px;
+   /* width: 60%;
+   height: 80%;
+   object-fit: cover;*/
+   border-radius: 10px;
+   box-shadow: -2px 2px 2px 2px grey; 
+}
+
+  
+
+
+section{
+    position: relative;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding: 30px 100px;
+    color: black;
+    overflow-x:hidden;
+}
+.container{
+    position:relative;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
+.main-title{
+    font-size:2em;
+    margin-bottom: 20 px;
+}
+.content{
+    position: relative;
+    width: 1150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .image{
+    position: relative;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    
+}
+
+.content .image img{
+    z-index: 111;
+    position:absolute;
+    top: 0;
+    left: 200px;
+    width: 60%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: -2px 2px 2px 2px grey;
+}
+
+.content .text-box{
+    z-index: 222;
+    background:rgba(0,0,0,0.13);
+  backdrop-filter: blur(20px);
+  padding: 50px;
+  max-width: 410px;
+  border: 1px solid rgba(255,255,255,0.1);
+transform: translate(-140px, 65px);
+ border-radius: 10px;
+ box-shadow: 2px 2px 2px 2px grey;
+}
+.work{
+    width: 50%;
+    margin:0px;
+    color:#F56D10;
+    font-weight: bolder;
+    text-shadow:black;
+    
+}
+#t1{
+    font-size:4.5rem;
+}
+#t2{
+    
+    font-size: 2.1rem;
+    color:gray;
+}
+#t3{
+    font-size:2rem;
+    color: cadetblue;
+}
+#t1{
+    
+  transform: translateY(-50%);
+  width: 100%;
+  /* text-align: center; */
+  /* letter-spacing: 0.3rem; */
+  /* text-transform: uppercase; */
+  color:rgb(0, 0, 0);
+  font-family: 'Pixelify Sans';
+}
+
+#t1 span{
+    display: inline-block;
+  
+    animation: animate 1s ease-in-out ;
+   
+   
+}
+
+.headings span{
+    animation: animate_q 1s ease-in-out 0.5s infinite;
+}
+
+@keyframes animate_q{
+    0%{
+        opacity: 0;
+        transform: rotateY(90deg);
+        filter: blur(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: rotateY(0deg);
+        filter: blur(0px);
+}
+}
+
+@keyframes animate{
+    0%{
+        opacity: 1;
+        transform: rotateY(90deg);
+        filter: blur(25px);
+    }
+    100%{
+        opacity: 0;
+        transform: rotateY(0deg);
+        filter: blur(0px);
+}
+}
+#t1 span:nth-child(1)
+{
+    animation-delay: 0.2s;
+}
+#t1 span:nth-child(2)
+{
+    animation-delay: 0.8s;
+}
+#t1 span:nth-child(3)
+{
+    animation-delay: 1.3s;
+}
+#t1 span:nth-child(4)
+{
+    animation-delay: 2s;
+}
+#t1 span:nth-child(5)
+{
+    animation-delay: 2.4s;
+}
+#t1 span:nth-child(6)
+{
+    animation-delay: 2.9s;
+}
+#t1 span:nth-child(7)
+{
+    animation-delay: 3.4s;
+}
+#t1 span:nth-child(8)
+{
+    animation-delay: 3.8s;
+}
+#t1 span:nth-child(9)
+{
+    animation-delay: 4.3s;
+}
+
+
+.resume_text{
+    padding: 2% 10%;
+    font-size :1.3rem;
+    color: rgb(65, 64, 64);
+}
+.headings {
+    margin: 2% 4%;
+}
+.resume{
+    color:#4682B4;
+}
+.resumebuild{
+    color:lightcoral
+}
+
+.start{
+    background-color: #20B2AA;
+    color: whitesmoke;
+     position: relative;
+    left: 38vw;
+    margin:3%;
+    font-size: 2rem;
+    border-radius: 30px;
+    box-shadow:2px 2px 10px 2px grey;
+}
+
+footer{
+    background:rgb(16, 15, 15);
+    height: 32vh;
+    color: white;
+    padding:0px;
+    padding-top: 2%;
+    
+}
+.foot2{
+    color: white;
+    font-weight:500;
+    position: relative;
+    bottom:0%;
+    background-color: black;
+    text-align: center;
+    height: 2.25em;
+    align-self: center;
+}
+.foot h3{
+    color:white;
+    font-weight:700;
+}
+.foot1 li{
+    list-style-type: none;
+    color:#FFFAFA;
+    font-size:0.8rem ;
+    line-height:25px;
+}
+.foot1 a{
+    text-decoration: none;
+}
+    </style>
+   
+</head>
+<body>
+
+
+    <div class="container-fluid">
+        <nav class="navbar sticky-top navbar-light bg-light header1">
+            <div class="container-fluid ">
+                <div><img src="https://i.ibb.co/m007VmQ/logo4-2.png" width="46%"  alt=""></div>
+                <!-- <h1><span id="logo1">RESU</span><span id='logo2'>craft</span></h1> -->
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active"  href="{% url 'home' %}">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'templates' %}">Resume Templates</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'view_profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+    
+                      <a class="nav-link" href ="{% url 'adddata' %}">your info</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'logout_view' %}"><button type="button" class="btn btn-danger btnlogut">logout</button></a>
+    
+                    </li>
+                  </ul>
+    {% else %}
+    <a href="{% url 'register' %}"><button type="button" class="btn btn-success btlogin">sign up</button></a>
+    <a href="{% url 'login' %}"><button type="button" class="btn btn-success btlogin">Login</button></a>
+    {% endif %}
+            </div>
+          </nav>
+       <!-- <nav class="navbar sticky-top navbar-light bg-light header1">
+            <div class="container-fluid ">
+                <h1><span id="logo1">RESU</span><span id='logo2'>craft</span></h1>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link active"  href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'templates' %}">Resume Templates</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'view_profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+
+                      <a class="nav-link" href ="{% url 'adddata' %}">add data</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'logout_view' %}"><button type="button" class="btn btn-danger btnlogut">logout</button></a>
+
+                    </li>
+                  </ul>
+{% else %}
+<a href="{% url 'register' %}"><button type="button" class="btn btn-success btlogin">sign up</button></a>
+<a href="{% url 'login' %}"><button type="button" class="btn btn-success btlogin">Login</button></a>
+{% endif %}
+            </div>
+          </nav> -->
+
+          <br> <br> <br>
+          
+          <div class="container-fulid title">
+          <img src="https://i.ibb.co/k6zN4MT/imgpng2.png" class="rounded float-start hidden1" id='imgl' alt="img"></img>
+              <section class="titlesec" id="tit">
+                <center>
+                  <h1><span id="t1">
+                    <span>R</span>
+                    <span>e</span>
+                    <span>s</span>
+                    <span>u</span>
+                    
+                    <span>C</span>
+                    <span>r</span>
+                    <span>a</span>
+                    <span>f</span>
+                    <span>t</span>
+                    </span><br>
+                  <div class="tt2"><span id="t2">Online Resume Builder </span></div>
+                 <div class="tt3"></div> <span class="tt3" id="t3">Create your own Personalized & Professional Resume for Free.</span>
+            
+                  </h1>
+                </center> 
+              </section>
+            <img src="https://i.ibb.co/PWtyNwq/imgpng3.png" class="rounded float-end hidden2" id='imgr' alt="img"></img>
+          </div>
+          <br/>
+          <div class="container-fluid carousel_div border">
+            <div class="container-fluid carousel_left">
+                <h1 >
+                    The Ultimate Resume Builder
+                </h1><br>
+                <p >
+                    Build beautiful, recruiter-tested resumes in a few clicks! Our resume builder is powerful and easy to use, with a range of amazing functions. Custom-tailor resumes for any job within minutes. Increase your interview chances and rise above the competition.
+                </p><br>
+                <a href="{% url 'templates' %}"><button type="button" class="btn btn-info">Try Now</button></a>
+            </div>
+            <div id="carouselExampleInterval" class="container-fluid carousel slide carousel_right " data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="https://i.ibb.co/1npS3Nq/cr-img1.jpg" class="d-block w-100 crimgs"  alt="...">
+                  </div>
+                 
+                  <div class="carousel-item" data-bs-interval="3000">
+                    <img src="https://i.ibb.co/nwbGYqz/cr-img3.jpg" class="d-block w-100 crimgs" alt="...">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="3000">
+                    <img src="https://i.ibb.co/x1yC1nD/cr-img4.jpg" class="d-block w-100 crimgs"  alt="...">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="3000">
+                    <img src="https://i.ibb.co/Wgy49Mz/cr-img2.jpg" class="d-block w-100 crimgs"  alt="...">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="3000">
+                    <img src="https://i.ibb.co/vjN0VSp/cr-img5.jpg" class="d-block w-100 crimgs"  alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+          </div>
+          <div class="container-fluid headings work" > <h1> How does RESUcraft work <span>?</span></h1>  <br/></div>
+          <section class="sec-01" id="">
+              <div class='container'>
+                  <h2 class="main-title">Choose a Template</h2>
+                  <div class='content'>
+                      <div class='image'>
+                        <img src="https://i.ibb.co/6wjx6Td/img6.png" class="img-thumbnail" alt="...">
+                      </div>
+                      <div class='text-box'>
+                          <h3 > Description </h3>
+                          <p> When selecting a free basic resume template, it's important to choose one that is appropriate for your industry and experience level. Look for a template that is well-designed and easy to read, with plenty of white space and clear headings.</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <section class="sec-02" id="">
+              <div class='container'>
+                  <h2 class="main-title">Give Your Information</h2>
+                  <div class='content'>
+                      <div class='image'>
+                         
+                          <img src="https://i.ibb.co/vhHFBJB/img7.png" class="img-thumbnail" alt="...">
+                      </div>
+                      <div class='text-box'>
+                          <h3 > Description </h3>
+                          <p> Now give your information. When filling your information, focus on highlighting your strengths and accomplishments. Make sure to include any relevant experience or skills that will make you stand out from other applicants.</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <section class="sec-03" id="">
+              <div class='container'>
+                  <h2 class="main-title">Download Resume </h2>
+                  <div class='content'>
+                      <div class='image'>
+                        <img src="https://i.ibb.co/q1KNWCw/img8.png" class="img-thumbnail"  alt="...">
+                      </div>
+                      <div class='text-box'>
+                          <h3 > Description </h3>
+                          <p> This HTML file is a template.
+                              If you open it directly in the browser, you will see an empty page.
+                              You can add webfonts, meta tags, or analytics to this file.
+                              The build step will place the bundled scripts into the
+                               the</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          
+          <button type="button " class="btn btn-success start">Get Started Now</button>
+          <div class="container-fluid headings resume">
+              <h1> What is Resume <span>?</span></h1></div>
+              <div class="container resume_text">
+                <p>A resume, also known as a CV (curriculum vitae), is a formal document presenting your professional qualifications to secure a job. It highlights essential skills, education, notable accomplishments, and relevant work experience, creating a compelling snapshot of your background and abilities, increasing your chances of getting hired. Resume writing doesn’t have to be hard if you have the right tools and the best resume formats at your fingertips.
+                    <br><br>
+                    While your ultimate goal with a resume is to get a job, the first purpose it serves is to attract enough attention to get you an interview. Recruiters may go through hundreds of resumes and only pick a few to interview. A well-written and well-formatted resume gets your foot in the door so you can wow them with your communication and personal interview skills.
+<br><br>
+No matter what type of resume layout you choose, it should be a snapshot of your relevant life and work experience, skills and communication ability. Think of your resume as a one-page advertisement, and you are the product. Combined with a well-written cover letter, your resume gets you through the door for the job.
+
+
+ 
+
+                </p>
+              
+             
+          </div>
+
+          <div class="container-fluid headings resumebuild">
+            <h1> What is a Resume Builder <span>?</span></h1></div>
+            <div class="container resume_text">
+              <p>A resume builder is an online resume maker that provides guidance and tools to create a resume with a few clicks. ResuCraft  Resume Builder allows you to start from scratch by choosing a resume template, adding your information or choosing our expert suggestions and downloading your finished product.
+                  <br><br>
+                  Whichever way you choose, ResuCraft online resume builder will provide you with guidance and expert suggestions every step of the way. You will build a resume for free that could take your career to the next level.
+<br><br>
+No matter what type of resume layout you choose, it should be a snapshot of your relevant life and work experience, skills and communication ability. Think of your resume as a one-page advertisement, and you are the product. Combined with a well-written cover letter, your resume gets you through the door for the job.
+
+
+
+
+              </p>
+            
+           
+        </div>
+          
+      </div>
+
+<footer class="d-flex flex-column">
+    <div class="container-fluid foot1 d-flex justify-content-evenly">
+       <div>
+           
+            <ul><h3>Customer Support</h3>
+                <h6>Timmings:</h4>
+                <li>Mon-Fri 8 AM - 8 PM CST</li>
+                <li>Saturday 8 AM - 5PM CST</li>
+                <li>Sunday 10 AM - 6 PM CST</li>
+            </ul>
+       </div>
+    
+       <div>
+        <ul>
+            <h3>About</h3>
+           <a href="{% url 'terms' %}"> <li>Terms and Conditions</li></a>
+            <a href="{% url 'privacy' %}"><li>Privacy Policy</li></a>
+            <a href="{% url 'about' %}"><li>About Us</li></a>
+           <a href="{% url 'contact' %}"> <li>FAQs</li></a>
+            
+        </ul>
+       </div>
+
+       <div>
+        <ul>
+           <h3>Follow us on <i class="fa-brands fa-linkedin"></i> </h3>
+            <a href="https://www.linkedin.com/in/eswar-karthikk-1a93a7243/"> <li><i class="fa-brands fa-linkedin"></i> A Eswar</li></a>
+            <a href="https://www.linkedin.com/in/harsha-vivek-a47309243/"><li><i class="fa-brands fa-linkedin"></i> A Harsha</li></a>
+           <a href="https://www.linkedin.com/in/jayasaisrikar/"><li><i class="fa-brands fa-linkedin"></i> B Srikar</li></a> 
+           <a href="https://www.linkedin.com/in/bhavani-balijiredddi-a2146b252/"><li><i class="fa-brands fa-linkedin"></i> B Bhavani</li></a> 
+            
+        </ul>
+       </div>
+    </div>
+
+</footer>
+
+      <script>
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            console.log(entry)
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show1');
+                entry.target.classList.add('show2');
+            }
+            else {
+                entry.target.classList.remove('show1');
+                entry.target.classList.remove('show2');
+            }
+        });
+    });
+const hiddenElements1 = document.querySelectorAll('.hidden1')
+const hiddenElements2 = document.querySelectorAll('.hidden2')
+hiddenElements1.forEach((el) => observer.observe(el));
+hiddenElements2.forEach((ele) => observer.observe(ele));
+    
+    
+    ScrollReveal({ 
+    reset: true ,
+    distance: '100px',
+    duration:2500,
+    delay:400
+    });
+    
+    ScrollReveal().reveal('.main-title', { delay: 500,origin:'left' });
+    ScrollReveal().reveal('.sec-01 .image', { delay: 500,origin:'bottom' });
+    ScrollReveal().reveal('.sec-01 .text-box', { delay: 500,origin:'right' });
+    
+    ScrollReveal().reveal('.main-title', { delay: 500,origin:'right' });
+    ScrollReveal().reveal('.sec-02 .image', { delay: 500,origin:'top' });
+    ScrollReveal().reveal('.sec-02 .text-box', { delay: 500,origin:'bottom' });
+    
+    ScrollReveal().reveal('.main-title', { delay: 500,origin:'top' });
+    ScrollReveal().reveal('.sec-03 .image', { delay: 500,origin:'left' });
+    ScrollReveal().reveal('.sec-03 .text-box', { delay: 500,origin:'right' });
+    ScrollReveal().reveal('.tt2', { delay: 400,origin:'top' });
+    ScrollReveal().reveal('.tt3', { delay: 400,origin:'bottom' });
+    
+    
+    </script>
+   
+</body>
+
+</html>

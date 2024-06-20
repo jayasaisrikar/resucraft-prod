@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="images/logo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=poppins');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+*{  font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+   
+    /* border:1px solid black; */
+}
+body::-webkit-scrollbar{
+    display: none;
+  overflow: hidden;
+}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .containers {
+            max-width: 80vw;
+            margin: 0 auto;
+            padding: 20px;
+align-items: center;
+justify-content: center;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+            align-content: start; 
+        }
+
+        .resume-thumbnail {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .resume-thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .resume-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            align-items: center;
+        }
+
+        .resume-description {
+            margin: 10px 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 99999999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            width: 33vw;
+            height: 85vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+       
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .resume-thumbnail img{
+        height: 47vh;
+        width: 28vw;
+        align-items: center;
+        }
+        
+        .modal-content img{
+            width: 26vw;
+            height: 70vh;
+        }
+
+        a{
+            text-decoration: none;
+        }
+footer{
+    background:rgb(16, 15, 15);
+    width: 97.5vw;
+    height: 32vh;
+    color: white;
+    padding:0px;
+    padding-top: 2%;
+    
+}
+.foot2{
+    color: white;
+    font-weight:500;
+    position: relative;
+    bottom:0%;
+    background-color: black;
+    text-align: center;
+    height: 2.25em;
+    align-self: center;
+}
+.foot h3{
+    color:white;
+    font-weight:700;
+}
+.foot1 li{
+    list-style-type: none;
+    color:#FFFAFA;
+    font-size:0.8rem ;
+    line-height:25px;
+}
+.foot1 a{
+    text-decoration: none;
+}
+
+  
+  .navbar{
+box-shadow:0px 2px gray;
+border-radius: 6px;
+
+  }
+  .nav{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-top: px;
+    width: 50%; 
+    position: relative;
+    /* left:19vw; */
+}
+
+.nav-item{
+    background-color:#FFFAFA;
+    border-radius: 10px;
+    border:0.000000000000001px solid #D3D3D3;
+
+    }
+
+    .nav-item:hover{
+        color:black;  
+        transform: scale(1.1);
+    }
+    .nav-link:hover{
+        color:black;  
+        transform: scale(1.1);
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar sticky-top navbar-light bg-light header1">
+            <div class="container-fluid ">
+                <div><img src="https://i.ibb.co/m007VmQ/logo4-2.png" width="46%"  alt=""></div>
+                <!-- <h1><span id="logo1">RESU</span><span id='logo2'>craft</span></h1> -->
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link "  href="{% url 'home' %}">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link " href="{% url 'about' %}">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'templates' %}">Resume Templates</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'view_profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+    
+                      <a class="nav-link" href ="{% url 'adddata' %}">your info</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'logout_view' %}"><button type="button" class="btn btn-danger btnlogut">logout</button></a>
+    
+                    </li>
+                  </ul>
+    {% else %}
+    <a href="{% url 'register' %}"><button type="button" class="btn btn-success btlogin">sign up</button></a>
+    <a href="{% url 'login' %}"><button type="button" class="btn btn-success btlogin">Login</button></a>
+    {% endif %}
+            </div>
+          </nav>
+    <div class="containers">
+    
+        <div class="resume-grid">
+            <!-- Resume Template 1 -->
+            <div class="resume-thumbnail" onclick="openModal(1)">
+                <img src="https://i.ibb.co/ccYdxdZ/image.png" class="img-thumbnail" alt="Resume Template 1">
+                <h2 class="resume-title">Resume Template 1</h2>
+                <p class="resume-description">A stylish and professional resume template.</p>
+            </div>
+
+            <!-- Resume Template 2 -->
+            <div class="resume-thumbnail" onclick="openModal(2)">
+                <img src="https://i.ibb.co/f18Jbzh/image.png" class="img-thumbnail " alt="Resume Template 2">
+                <h2 class="resume-title">Resume Template 2</h2>
+                <p class="resume-description">A modern and clean resume design.</p>
+            </div>
+
+            <div class="resume-thumbnail" onclick="openModal(3)">
+                <img src="https://i.ibb.co/WtFg8j5/image.png" class="img-thumbnail" alt="Resume Template 2">
+                <h2 class="resume-title">Resume Template 3</h2>
+                <p class="resume-description">A modern and clean resume design.</p>
+            </div>
+
+            <div class="resume-thumbnail" onclick="openModal(4)">
+                <img src="https://i.ibb.co/WtFg8j5/image.png" class="img-thumbnail" alt="Resume Template 2">
+                <h2 class="resume-title">Resume Template 4</h2>
+                <p class="resume-description">A modern and clean resume design.</p>
+            </div>
+
+            <div class="resume-thumbnail" onclick="openModal(5)">
+                <img src="https://i.ibb.co/KXcfdsr/image.png" class="img-thumbnail" alt="Resume Template 2">
+                <h2 class="resume-title">Resume Template 5</h2>
+                <p class="resume-description">A modern and clean resume design.</p>
+            </div>
+
+            <div class="resume-thumbnail" onclick="openModal(6)">
+                <img src="https://i.ibb.co/WtFg8j5/image.png" class="img-thumbnail" alt="Resume Template 2">
+                <h2 class="resume-title">Resume Template 6</h2>
+                <p class="resume-description">A modern and clean resume design.</p>
+            </div>
+            <div class="resume-thumbnail" onclick="openModal(7)">
+                <img src="https://i.ibb.co/r0DQQ9z/image.png" class="img-thumbnail" alt="Resume Template 7">
+                <h2 class="resume-title">Resume Template 7</h2>
+                <p class="resume-description">An elegant and creative resume layout.</p>
+            </div>
+            <div class="resume-thumbnail" onclick="openModal(8)">
+                <img src="https://i.ibb.co/WtFg8j5/image.png" class="img-thumbnail" alt="Resume Template 8">
+                <h2 class="resume-title">Resume Template 8</h2>
+                <p class="resume-description">An elegant and creative resume layout.</p>
+            </div>
+            <div class="resume-thumbnail" onclick="openModal(9)">
+                <img src="https://i.ibb.co/WtFg8j5/image.png" class="img-thumbnail" alt="Resume Template 9">
+                <h2 class="resume-title">Resume Template 9</h2>
+                <p class="resume-description">An elegant and creative resume layout.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for displaying full-size resume templates -->
+    <div id="myModal1" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(1)">&times;</span>
+           
+            <img id="modal-image1" src="https://i.ibb.co/ccYdxdZ/image.png" alt="Selected Resume Template 1"><br>
+            <a href="{% url 'template1' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+
+    <div id="myModal2" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(2)">&times;</span>
+           
+            <img id="modal-image2" src="https://i.ibb.co/f18Jbzh/image.png" alt="Selected Resume Template 2"><br>
+            <a href="{% url 'template2' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+    <div id="myModal3" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(3)">&times;</span>
+           
+            <img id="modal-image3" src="https://i.ibb.co/WtFg8j5/image.png" alt="Selected Resume Template 3"><br>
+            <a href="{% url 'template3' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+    <div id="myModal4" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(4)">&times;</span>
+           
+            <img id="modal-image4" src="" alt="Selected Resume Template 4"><br>
+            <a href="{% url 'template4' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+    <div id="myModal5" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(5)">&times;</span>
+           
+            <img id="modal-image5" src="https://i.ibb.co/KXcfdsr/image.png" alt="Selected Resume Template 5"><br>
+            <a href="{% url 'template5' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+    <div id="myModal6" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(6)">&times;</span>
+           
+            <img id="modal-image6" src="" alt="Selected Resume Template 6"><br>
+            <a href="{% url 'template6' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+    <div id="myModal7" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(7)">&times;</span>
+           
+            <img id="modal-image7" src="https://i.ibb.co/r0DQQ9z/image.png" alt="Selected Resume Template 7"><br>
+            <a href="{% url 'template7' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+    <div id="myModal8" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(8)">&times;</span>
+           
+            <img id="modal-image8" src="" alt="Selected Resume Template 8"><br>
+            <a href="{% url 'template8' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+    <div id="myModal9" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal(9)">&times;</span>
+           
+            <img id="modal-image9" src="" alt="Selected Resume Template 9"><br>
+            <a href="{% url 'template9' %}"><button type="button" style="color: white ;font-weight:bold;" class="btn btn-info">Build your resume</button></a>
+        </div>
+    </div>
+
+    <footer class="d-flex flex-column">
+        <div class="container-fluid foot1 d-flex justify-content-evenly">
+           <div>
+               
+                <ul><h3>Customer Support</h3>
+                    <h6>Timmings:</h4>
+                    <li>Mon-Fri 8 AM - 8 PM CST</li>
+                    <li>Saturday 8 AM - 5PM CST</li>
+                    <li>Sunday 10 AM - 6 PM CST</li>
+                </ul>
+           </div>
+        
+           <div>
+            <ul>
+                <h3>About</h3>
+               <a href="{% url 'terms' %}"> <li>Terms and Conditions</li></a>
+                <a href="{% url 'privacy' %}"><li>Privacy Policy</li></a>
+                <a href="{% url 'about' %}"><li>About Us</li></a>
+               <a href="{% url 'contact' %}"> <li>FAQs</li></a>
+                
+            </ul>
+           </div>
+    
+           <div>
+            <ul>
+               <h3>Follow us on <i class="fa-brands fa-linkedin"></i> </h3>
+                <a href="https://www.linkedin.com/in/eswar-karthikk-1a93a7243/"> <li><i class="fa-brands fa-linkedin"></i> A Eswar</li></a>
+                <a href="https://www.linkedin.com/in/harsha-vivek-a47309243/"><li><i class="fa-brands fa-linkedin"></i> A Harsha</li></a>
+               <a href="https://www.linkedin.com/in/jayasaisrikar/"><li><i class="fa-brands fa-linkedin"></i> B Srikar</li></a> 
+               <a href="https://www.linkedin.com/in/bhavani-balijiredddi-a2146b252/"><li><i class="fa-brands fa-linkedin"></i> B Bhavani</li></a> 
+                
+            </ul>
+           </div>
+        </div>
+        <div class="container-fluid foot2 d-flex align-items-center justify-content-center"> © 2023 Works Limited. All Rights Reserved.</div>
+     
+    </footer>
+    
+
+    <script>
+        function openModal(templateNumber) {
+            var modal = document.getElementById("myModal" + templateNumber);
+            var modalImage = document.getElementById("modal-image" + templateNumber);
+            modal.style.display = "block";
+        }
+    
+        function closeModal(templateNumber) {
+            var modal = document.getElementById("myModal" + templateNumber);
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

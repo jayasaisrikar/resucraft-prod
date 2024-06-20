@@ -1,0 +1,17 @@
+<!-- profile_request.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Request</title>
+</head>
+<body>
+    <h1>Profile Request</h1>
+    <p>Do you want to view your profile?</p>
+    <form method="post" action="/view_profile/">
+        {% csrf_token %}
+        <button type="submit">View Profile</button>
+    </form>
+</body>
+</html>

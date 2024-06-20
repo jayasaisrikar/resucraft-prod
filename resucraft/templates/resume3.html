@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/YpGLhBN/logo2.png">
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        .header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .profile-details {
+            flex: 1;
+            margin-top: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #3498db;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #00ff22;
+        }
+
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .block {
+            flex: 1;
+            margin: 0 20px 20px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .navbar {
+            background-color: #34495e;
+            z-index: 3;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 20px;
+        }
+
+        .navbar-dark .navbar-brand,
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ecf0f1;
+        }
+        .title{
+            color: #22d139;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">ResuCraft</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main id="printarea">
+        <div class="container">
+
+            {% if no_data_message  %}
+            <center>
+                <div class="profile-section">
+                    <p>You've not entered any data </p>
+                    <a href="{% url 'home' %}"><button>Go to Home</button></a>
+                </div>
+            </center>
+            {% else %}
+            <div class="profile-section">
+                <img src="{{ user_data.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                <div class="profile-details">
+                    <h1>{{ user_data.name_of_user }}</h1>
+                    <h2 class="title">{{ user_data.title }}</h2>
+                    <p>{{ user_data.description }}</p>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <div class="block">
+                    <h2>Contact Information:</h2>
+                    <ul>
+                        <li><strong>Email:</strong> {{ user_data.contact_email }}</li>
+                        <li><strong>Phone Number:</strong> {{ user_data.phone_number }}</li>
+                        <li><strong>Address:</strong> {{ user_data.address }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="profile-section">
+                <div class="block">
+                    <h2>Expertises:</h2>
+                    <ul>
+                        {% for expertise in user_data.expertises.all %}
+                        <li>{{ expertise.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="block">
+                    <h2>Skills:</h2>
+                    <ul>
+                        {% for skill in user_data.skills.all %}
+                        <li>{{ skill.skill }} - {{ skill.percentage }}%</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="block">
+                    <h2>Computer Skills:</h2>
+                    <ul>
+                        {% for computer_skill in user_data.computer_skills.all %}
+                        <li>{{ computer_skill.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education and Projects -->
+            <div class="profile-section">
+                <div class="block">
+                    <h2>Education:</h2>
+                    <ul>
+                        {% for institution in user_data.education.all %}
+                        <li>{{ institution.name }} - {{ institution.years_studied }} years</li>
+                        <li>{{ institution.description }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="block">
+                    <h2>Projects:</h2>
+                    <ul>
+                        {% for project in user_data.projects.all %}
+                        <li>{{ project.projectnames }}</li>
+                        <li>{{ project.project_desc }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="profile-section">
+                <div class="block">
+                    <h2>Work Experience</h2>
+                    <ul>
+                        {% for job in user_data.work_experiences.all %}
+                        <li>
+                            <p class="para-1">{{ job.name }} IN {{job.jobplace}}({{ job.duration }})</p>
+                            <p class="para-2"> {{ job.description }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="profile-section">
+                <div class="block">
+                    <h2>Links:</h2>
+                    <ul>
+                        {% for link in user_data.links.all %}
+                        <li><a href="{{ link.link }}" target="_blank">{{ link.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+
+    <div class="footer">
+        <button onclick="print()" style="border-radius: 10px;">Print</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        window.jsPDF = window.jspdf.jsPDF;
+        var docPDF = new jsPDF();
+        function print() {
+          var elementHTML = document.querySelector("#printarea");
+          docPDF.html(elementHTML, {
+            callback: function (docPDF) {
+              docPDF.save("resume.pdf");
+            },
+            x:-25,
+            y:-5,
+            width: 260,
+            windowWidth: 1520,
+          });
+        }
+      </script>
+</body>
+
+</html>

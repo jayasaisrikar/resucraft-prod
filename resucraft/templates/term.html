@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="images/logo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=poppins');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+*{  font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+   
+    /* border:1px solid black; */
+}
+body::-webkit-scrollbar{
+    display: none;
+  overflow: hidden;
+}
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            /* background: linear-gradient(to right, #4CAF50, #2196F3); */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1{
+            font-weight:700;
+            color: #2196F3;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #4CAF50;
+        }
+
+        /* Styling for table of contents */
+        .table-of-contents {
+            list-style: none;
+            padding: 0;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 10px;
+        }
+
+        .table-of-contents a {
+            color: #777;
+            text-decoration: none;
+        }
+
+        .table-of-contents a:hover {
+            color: #333;
+        }
+
+        /* Add page break after the first page */
+        @media print {
+            body::after {
+                content: "";
+                page-break-after: always;
+                display: block;
+            }
+        }
+
+        footer{
+    background:rgb(16, 15, 15);
+    height: 32vh;
+    color: white;
+    padding:0px;
+    padding-top: 2%;
+    
+}
+.foot2{
+    color: white;
+    font-weight:500;
+    position: relative;
+    bottom:0%;
+    background-color: black;
+    text-align: center;
+    height: 2.25em;
+    align-self: center;
+}
+.foot h3{
+    color:white;
+    font-weight:700;
+}
+.foot1 li{
+    list-style-type: none;
+    color:#FFFAFA;
+    font-size:0.8rem ;
+    line-height:25px;
+}
+.foot1 a{
+    text-decoration: none;
+}
+
+  
+  .navbar{
+box-shadow:0px 2px gray;
+border-radius: 6px;
+
+  }
+  .nav{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-top: px;
+    width: 50%; 
+    position: relative;
+    /* left:19vw; */
+}
+
+.nav-item{
+    background-color:#FFFAFA;
+    border-radius: 10px;
+    border:0.000000000000001px solid #D3D3D3;
+
+    }
+
+    .nav-item:hover{
+        color:black;  
+        transform: scale(1.1);
+    }
+    .nav-link:hover{
+        color:black;  
+        transform: scale(1.1);
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar sticky-top navbar-light bg-light header1">
+            <div class="container-fluid ">
+                <div><img src="https://i.ibb.co/m007VmQ/logo4-2.png" width="46%"  alt=""></div>
+                <!-- <h1><span id="logo1">RESU</span><span id='logo2'>craft</span></h1> -->
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link "  href="{% url 'home' %}">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'templates' %}">Resume Templates</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'view_profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+    
+                      <a class="nav-link" href ="{% url 'adddata' %}">add data</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'logout_view' %}"><button type="button" class="btn btn-danger btnlogut">logout</button></a>
+    
+                    </li>
+                  </ul>
+    {% else %}
+    <a href="{% url 'register' %}"><button type="button" class="btn btn-success btlogin">sign up</button></a>
+    <a href="{% url 'login' %}"><button type="button" class="btn btn-success btlogin">Login</button></a>
+    {% endif %}
+            </div>
+          </nav>
+      <br>
+    <header>
+        <h1>Terms and Conditions</h1>
+    </header>
+    <div class="container">
+        <h2>Table of Contents</h2>
+        <ul class="table-of-contents">
+            <li><a href="#section1">1. Introduction</a></li>
+            <li><a href="#section2">2. Use of the Website</a></li>
+            <li><a href="#section3">3. Terms of Service</a></li>
+            <li><a href="#section4">4. User Registration</a></li>
+            <li><a href="#section5">5. Social Media</a></li>
+            <!-- Add more sections to fill two pages -->
+        </ul>
+
+        <h2 id="section1">1. Introduction</h2>
+        <p>These terms and conditions (the "Terms") govern your use of the Resume Builder website (the "Website"). By using the Website, you agree to these Terms in full.
+            You agree that by accessing the Platform, you have read, understood, and agree to be bound by all of these Terms including any supplemental terms that apply to you based on where you live. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS (INCLUDING ANY SUPPLEMENTAL TERMS), THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE PLATFORM AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+        </p>
+
+        <h2 id="section2">2. Use of the Website</h2>
+        <p>You must be at least 18 years of age to use the Website. You agree not to use the Website for any unlawful purpose or in any way that could harm the Website or its users.</p>
+
+        <!-- Add more sections as needed to fill two pages -->
+
+        <h2 id="section3">3. Contact Information</h2>
+        <p>If you have any questions about these Terms, please contact us at <a href="mailto:support@yourresumebuilder.com">support@yourresumebuilder.com</a>.</p>
+        <h2 id="section3">4. User Registration</h2>
+        <p>You may be required to register with the Platform or one of its component sites. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable. </p>
+        <!-- Add more content to fill two pages -->
+        <h2 id="section3">4. User Registration</h2>
+        <p>As part of the functionality of the Platform, you may link your account with online accounts you have with third-party service providers (each such account, a “Third-Party Account”) by either: (1) providing your Third-Party Account login information through the Platform; or (2) allowing us to access your Third-Party Account, as is permitted under the applicable terms and conditions that govern your use of each Third-Party Account. You represent and warrant that you are entitled to disclose your Third-Party Account login information to us and/or grant us access to your Third-Party Account, without breach by you of any of the terms and conditions that govern your use of the applicable Third-Party Account, and without obligating us to pay any fees or making us subject to any usage limitations imposed by the third-party service provider of the Third-Party Account.</p>
+    </div>
+
+    <footer class="d-flex flex-column">
+        <div class="container-fluid foot1 d-flex justify-content-evenly">
+           <div>
+               
+                <ul><h3>Customer Support</h3>
+                    <h6>Timmings:</h4>
+                    <li>Mon-Fri 8 AM - 8 PM CST</li>
+                    <li>Saturday 8 AM - 5PM CST</li>
+                    <li>Sunday 10 AM - 6 PM CST</li>
+                </ul>
+           </div>
+        
+           <div>
+            <ul>
+                <h3>About</h3>
+               <a href="{% url 'terms' %}"> <li>Terms and Conditions</li></a>
+                <a href="{% url 'privacy' %}"><li>Privacy Policy</li></a>
+                <a href="{% url 'about' %}"><li>About Us</li></a>
+               <a href="{% url 'contact' %}"> <li>FAQs</li></a>
+                
+            </ul>
+           </div>
+    
+           <div>
+            <ul>
+               <h3>Follow us on <i class="fa-brands fa-linkedin"></i> </h3>
+                <a href="https://www.linkedin.com/in/eswar-karthikk-1a93a7243/"> <li><i class="fa-brands fa-linkedin"></i> A Eswar</li></a>
+                <a href="https://www.linkedin.com/in/harsha-vivek-a47309243/"><li><i class="fa-brands fa-linkedin"></i> A Harsha</li></a>
+               <a href="https://www.linkedin.com/in/jayasaisrikar/"><li><i class="fa-brands fa-linkedin"></i> B Srikar</li></a> 
+               <a href="https://www.linkedin.com/in/bhavani-balijiredddi-a2146b252/"><li><i class="fa-brands fa-linkedin"></i> B Bhavani</li></a> 
+                
+            </ul>
+           </div>
+        </div>
+ 
+    </footer>
+    
+</body>
+</html>

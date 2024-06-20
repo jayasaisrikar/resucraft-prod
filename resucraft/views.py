@@ -303,7 +303,7 @@ def register(request):
 
 def home(request):
 
-    return render(request,'home.html')
+    return render(request,'index.html')
 # views.py
 # views.py
 from django.shortcuts import get_object_or_404

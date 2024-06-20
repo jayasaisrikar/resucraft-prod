@@ -81,10 +81,12 @@ WSGI_APPLICATION = 'Resume.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'resucraft',
+        'URL': 'postgresql://:@roundhouse.proxy.rlwy.net:31010/railway',
+        'NAME': 'railway',
         'USER':'postgres',
-        'PASSWORD':'1206',
-        'HOST':'localhost'
+        'PASSWORD':'pNUoZyRBbKWWvcqEnzIRNxMbwKOhVccU',
+        'HOST':'roundhouse.proxy.rlwy.net',
+        'PORT': 31010,
     }
 }
 

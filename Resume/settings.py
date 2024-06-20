@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5iwve&wvu^_5j_0nb9o20a*wtg18xcoxuy+ti-l@%u9art24tc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['resucraft.vercel.app', '*']
 
 
 # Application definition

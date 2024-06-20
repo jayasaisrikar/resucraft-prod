@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'Resume.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'URL': 'postgresql://:@roundhouse.proxy.rlwy.net:31010/railway',
+        'URL': 'postgresql://postgres:UhTDTWKZDWwcpZBPveFPqwXbBDzljefs@monorail.proxy.rlwy.net:40953/railway',
         'NAME': 'railway',
         'USER':'postgres',
-        'PASSWORD':'pNUoZyRBbKWWvcqEnzIRNxMbwKOhVccU',
-        'HOST':'roundhouse.proxy.rlwy.net',
-        'PORT': 31010,
+        'PASSWORD':'UhTDTWKZDWwcpZBPveFPqwXbBDzljefs',
+        'HOST':'monorail.proxy.rlwy.net',
+        'PORT': 40953,
     }
 }
 

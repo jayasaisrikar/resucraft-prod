@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResuCraft - Online Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-section {
+            background: url('https://img.freepik.com/free-photo/blending-futuristic-building-seamlessly-into-desert-landscape_23-2151248472.jpg?t=st=1718955791~exp=1718959391~hmac=fba8e7956dd2c44612a4ee0123f06592428ccff6e557de437949c9a2a44f1e34&w=996') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-primary {
+            background: linear-gradient(to right, #42e695, #3bb2b8);
+            color: white;
+        }
+        .animated {
+            transition: transform 0.3s ease-in-out;
+        }
+        .animated:hover {
+            transform: scale(1.05);
+        }
+        .custom-shadow {
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .form-container {
+  width: 400px;
+  background: linear-gradient(#212121, #212121) padding-box,
+              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+  border: 2px solid transparent;
+  padding: 32px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.form-container button:active {
+  scale: 0.95;
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.form-container .form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  background-color: transparent;
+  border: 1px solid #414141;
+}
+
+.form-container .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  resize: none;
+  color: #fff;
+  height: 96px;
+  border: 1px solid #414141;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-group textarea:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+  font-family: inherit;
+  color: #717171;
+  font-weight: 600;
+  width: 40%;
+  background: #313131;
+  border: 1px solid #414141;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.form-container .form-submit-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+
+
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800" background="black">
+    <header class="bg-white shadow-md py-4 custom-shadow">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="text-3xl font-bold text-gray-900">ResuCraft</div>
+            <nav class="space-x-4">
+                <a href="#home" class="text-lg font-semibold text-gray-700 hover:text-gray-900">Home</a>
+                <a href="#about" class="text-lg font-semibold text-gray-700 hover:text-gray-900">About</a>
+                <a href="#contact" class="text-lg font-semibold text-gray-700 hover:text-gray-900">Contact</a>
+                <a href="#resume-templates" class="text-lg font-semibold text-gray-700 hover:text-gray-900">Resume Templates</a>
+            </nav>
+            <button class="button-primary px-4 py-2 rounded-md animated">Menu</button>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">R e s u C r a f t</h1>
+            <p class="text-2xl md:text-3xl mb-6">Online Resume Builder</p>
+            <p class="text-lg md:text-xl mb-8">Create your own Personalized & Professional Resume for Free.</p>
+            <button class="button-primary px-8 py-4 rounded-full text-lg animated">Get Started</button>
+        </div>
+    </section>
+
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">The Ultimate Resume Builder</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md animated">
+                    <img src="path/to/your/image1.png" alt="Feature 1" class="w-full mb-4">
+                    <h3 class="text-2xl font-semibold mb-2">Choose a Template</h3>
+                    <p class="text-lg">Select a template that is appropriate for your industry and experience level. Look for a design that is well-structured and easy to read.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md animated">
+                    <img src="path/to/your/image2.png" alt="Feature 2" class="w-full mb-4">
+                    <h3 class="text-2xl font-semibold mb-2">Give Your Information</h3>
+                    <p class="text-lg">Highlight your strengths and accomplishments. Include relevant experience and skills that make you stand out from other applicants.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md animated">
+                    <img src="path/to/your/image3.png" alt="Feature 3" class="w-full mb-4">
+                    <h3 class="text-2xl font-semibold mb-2">Download Resume</h3>
+                    <p class="text-lg">Easily download your resume. Use webfonts, meta tags, and analytics to enhance your document before submission.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-50 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">What is a Resume?</h2>
+            <p class="text-lg md:text-xl mb-6">A resume, also known as a CV, is a formal document presenting your professional qualifications to secure a job. It highlights essential skills, education, notable accomplishments, and relevant work experience, creating a compelling snapshot of your background and abilities, increasing your chances of getting hired.</p>
+            <button class="button-secondary px-8 py-4 rounded-full text-lg animated">Learn More</button>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 text-center" style="align-items: center;">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">Customer Support</h2>
+            <div class="form-container">
+                <form class="form">
+                  <div class="form-group">
+                    <label for="email">Company Email</label>
+                    <input required="" name="email" id="email" type="text">
+                  </div>
+                  <div class="form-group">
+                    <label for="textarea">How Can We Help You?</label>
+                    <textarea required="" cols="50" rows="10" id="textarea" name="textarea">          </textarea>
+                  </div>
+                  <button type="submit" class="form-submit-btn">Submit</button>
+                </form>
+              </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center space-y-4">
+            <p>Follow us on:</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white">A Eswar</a>
+                <a href="#" class="text-gray-400 hover:text-white">A Harsha</a>
+                <a href="#" class="text-gray-400 hover:text-white">B Srikar</a>
+                <a href="#" class="text-gray-400 hover:text-white">B Bhavani</a>
+            </div>
+            <div class="text-gray-400">
+                <a href="#" class="hover:text-white">About</a> | 
+                <a href="#" class="hover:text-white">Terms and Conditions</a> | 
+                <a href="#" class="hover:text-white">Privacy Policy</a> | 
+                <a href="#" class="hover:text-white">FAQs</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

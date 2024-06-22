@@ -11,6 +11,8 @@
     <!-- <link rel="stylesheet" href="home.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=poppins');
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
@@ -189,44 +191,49 @@ border-radius: 6px;
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <nav class="navbar sticky-top navbar-light bg-light header1">
-            <div class="container-fluid ">
-                <div><img src="https://i.ibb.co/m007VmQ/logo4-2.png" width="46%"  alt=""></div>
-                <!-- <h1><span id="logo1">RESU</span><span id='logo2'>craft</span></h1> -->
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link "  href="{% url 'index' %}">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link " href="{% url 'about' %}">About</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'templates' %}">Resume Templates</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                      <a class="nav-link" href="{% url 'view_profile' %}">Profile</a>
-                    </li>
-                    <li class="nav-item">
-    
-                      <a class="nav-link" href ="{% url 'adddata' %}">your info</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{% url 'logout_view' %}"><button type="button" class="btn btn-danger btnlogut">logout</button></a>
-    
-                    </li>
-                  </ul>
-    {% else %}
-    <a href="{% url 'register' %}"><button type="button" class="btn btn-success btlogin">sign up</button></a>
-    <a href="{% url 'login' %}"><button type="button" class="btn btn-success btlogin">Login</button></a>
-    {% endif %}
-            </div>
-          </nav>
-    <div class="containers">
+    <header class="bg-purple-500 bg-opacity-0 py-4 px-6 fixed w-full z-50">
+        <nav class="flex justify-center items-center">
+          <div class="w-full md:w-4/5 bg-purple-500 bg-opacity-70 rounded-full shadow-lg p-6 flex flex-col md:flex-row md:items-center justify-between transition-all duration-500">
+            <a href="#" class="text-white text-2xl font-bold hover:text-purple-200 transition duration-300">ResuMate</a>
+            <button id="menu-button" class="text-white focus:outline-none hover:text-purple-200 transition duration-300 md:hidden">
+              <svg class="w-6 h-6 animate-spin-slow hover:animate-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+            <ul class="hidden md:flex space-x-6 items-center">
+              <li><a href="{% url 'index' %} class="text-white hover:text-purple-200 transition duration-300">Home</a></li>
+              <li><a href="{% url 'about' %}" class="text-white hover:text-purple-200 transition duration-300">About</a></li>
+              <li><a href="{% url 'templates' %}" class="text-white hover:text-purple-200 transition duration-300">Resume Templates</a></li>
+              <li><a href="{% url 'contact' %}" class="text-white hover:text-purple-200 transition duration-300">Contact</a></li>
+              <li>
+                {% if user.is_authenticated %}
+                <button class="bg-green-600 text-white px-6 py-2 rounded-full font-bold tracking-wide shadow-lg transition duration-500 transform hover:scale-110 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 animate-slideInRight">
+                  <a href="{% url 'logout_view' %}">Logout</a>
+                  </button>
+                {% else %}</li>
+              <li><button type="button" class="bg-green-600 text-white px-6 py-2 rounded-full font-bold tracking-wide shadow-lg transition duration-500 transform hover:scale-110 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 animate-slideInRight">
+                  <a href="{% url 'login' %}">Login</a>
+                </button>
+              </li>  
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </header>
+      
+      <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+          const menu = document.querySelector('header nav ul');
+          if(menu.classList.contains('hidden')){
+            menu.classList.remove('hidden');
+            menu.classList.add('animate-slide-in');
+          } else {
+            menu.classList.add('hidden');
+            menu.classList.remove('animate-slide-in');
+          }
+        });
+      </script>
+    <div class="containers"  style="padding-top: 50px;">
     
         <div class="resume-grid">
             <!-- Resume Template 1 -->
